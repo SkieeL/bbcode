@@ -9,21 +9,21 @@ class ParserTest extends WebTestCase
 {
     public function testFactory()
     {
-        $found = array(
-            'b' => "some text with [b] u tag[/b]"
-        );
-        $wrong = array(
-            'i' => "some text with [b] u tag[/b]"
-        );
+        $work = "some text with [b] u tag[/b]";
+        $wrong = "some text with [b] u tag[/c]";
 
         $expected = "some text with <b> u tag</b>";
 
-        $factory = new TagFactory($found);
+        $factory = new TagFactory($work);
         $factory->parse();
-
         $parsed = $factory->getParsed();
 
         $this->assertEquals($expected, $parsed);
-        $this->assertNotEquals($wrong, $parsed);
+
+        $factory = new TagFactory($wrong);
+        $factory->parse();
+        $parsed = $factory->getParsed();
+
+        $this->assertEquals($wrong, $parsed);
     }
 }

@@ -3,8 +3,9 @@
 namespace Forti\Bundle\BbcodeBundle\Parser\Tags;
 
 use Forti\Bundle\BbcodeBundle\Parser\Tags\TagInterface;
+use Forti\Bundle\BbcodeBundle\Parser\Tags\AbstractTag;
 
-class TagB implements TagInterface
+class TagB extends AbstractTag implements TagInterface
 {
     private $parsed = false;
     private $tag = array(
@@ -18,8 +19,12 @@ class TagB implements TagInterface
 
     public function parse($text)
     {
-        $parsed = str_replace($this->tag['from'], $this->tag['to'], $text);
-        $this->parsed = $parsed;
+        if ($this->validate($this->tag['from'], $text)) {
+            $parsed = str_replace($this->tag['from'], $this->tag['to'], $text);
+            $this->parsed = $parsed;
+        } else {
+            $this->parsed = $text;
+        }
     }
 
     public function getParsed()

@@ -3,8 +3,9 @@
 namespace Forti\Bundle\BbcodeBundle\Parser\Tags;
 
 use Forti\Bundle\BbcodeBundle\Parser\Tags\TagInterface;
+use Forti\Bundle\BbcodeBundle\Parser\Tags\AbstractTag;
 
-class TagColor implements TagInterface
+class TagColor extends AbstractTag implements TagInterface
 {
     private $parsed = false;
     private $tags = array();
