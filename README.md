@@ -1,8 +1,17 @@
 # bbcode
 bbcode parser Bundle for Symfony framework
 
-parser by Wookie (https://github.com/wookieb/bbcode)
-modified, refactored by me for needs of the symfony
 
+## works:
+- Bold [b]..[/b] *
+- Italic [i]..[/i] *
+- Underline ([u]..[/u] - span style
+- Colors [color=(black/#cccccc)]..[/color] - span style
 
-## Commit in next 2-3 weeks
+## will work soon:
+- img
+- links a with targets
+- video (youtube?)
+- ...
+
+(*) probable will be changed to span
