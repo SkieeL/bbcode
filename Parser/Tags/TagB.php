@@ -6,22 +6,19 @@ use Forti\Bundle\BbcodeBundle\Parser\Tags\TagInterface;
 
 class TagB implements TagInterface
 {
-    private $text = false;
     private $parsed = false;
     private $tag = array(
         'from' => array("[b]", "[/b]"),
         'to' => array("<b>", "</b>"),
     );
 
-    public function __construct($text)
+    public function __construct()
     {
-        $this->text = $text;
-        $this->parse();
     }
 
-    private function parse()
+    public function parse($text)
     {
-        $parsed = str_replace($this->tag['from'], $this->tag['to'], $this->text);
+        $parsed = str_replace($this->tag['from'], $this->tag['to'], $text);
         $this->parsed = $parsed;
     }
 

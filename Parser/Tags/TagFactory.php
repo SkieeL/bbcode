@@ -4,32 +4,38 @@ namespace Forti\Bundle\BbcodeBundle\Parser\Tags;
 
 class TagFactory
 {
-    private $parsed = false;
-    private $unParsed = false;
+    private $text = false;
+    private $tags = array(
+        '[b]',
+        '[i]',
+        '[u]',
+        '[color'
+    );
 
-    public function __construct(array $found)
+    public function __construct($text)
     {
-        $this->unParsed = $found;
+        $this->text = $text;
     }
 
     public function parse()
     {
-        foreach ($this->unParsed as $tag => $text) {
+        foreach ($this->tags as $tag) {
+            if (strpos($this->text, $tag)) {
 
-            $tag = strtoupper($tag);
-            $className = __NAMESPACE__ . "\\Tag{$tag}";
+                $tag = str_replace(array('[', ']'), '', $tag);
+                $tag = ucfirst($tag);
+                $className = __NAMESPACE__ . "\\Tag{$tag}";
 
-            if ($this->parsed) {
-                $text = $this->parsed;
+                $class = new $className();
+                $class->parse($this->text);
+                $this->text = $class->getParsed();
+
             }
-
-            $class = new $className($text);
-            $this->parsed = $class->getParsed();
         }
     }
 
     public function getParsed()
     {
-        return $this->parsed;
+        return $this->text;
     }
 }

@@ -6,22 +6,21 @@ use Forti\Bundle\BbcodeBundle\Parser\Tags\TagInterface;
 
 class TagU implements TagInterface
 {
-    private $text = false;
+
     private $parsed = false;
     private $tag = array(
         '<span style="text-decoration: underline">',
         '</span>'
     );
 
-    public function __construct($text)
+    public function __construct()
     {
-        $this->text = $text;
-        $this->parse();
+
     }
 
-    private function parse()
+    public function parse($text)
     {
-        $parsed = str_replace(array("[u]", "[/u]"), $this->tag, $this->text);
+        $parsed = str_replace(array("[u]", "[/u]"), $this->tag, $text);
         $this->parsed = $parsed;
     }
 

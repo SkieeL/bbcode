@@ -16,50 +16,60 @@ class ParserTest extends WebTestCase
 
     public function testBold()
     {
-        $text = "some <b>text b</b>";
+        $expected = "some <b>text b</b>";
         $unparsed = "some [b]text b[/b]";
 
-        $parsed = $this->parser->single($unparsed);
+        $parsed = $this->parser->parse($unparsed);
 
-        $this->assertEquals($text, $parsed);
+        $this->assertEquals($expected, $parsed);
     }
 
     public function testItalic()
     {
-        $text = "some <i>text </i>";
+        $expected = "some <i>text </i>";
         $unparsed = "some [i]text [/i]";
 
-        $parsed = $this->parser->single($unparsed);
+        $parsed = $this->parser->parse($unparsed);
 
-        $this->assertEquals($text, $parsed);
+        $this->assertEquals($expected, $parsed);
     }
 
     public function testUnderLine()
     {
-        $text = 'some <span style="text-decoration: underline">text </span>';
+        $expected = 'some <span style="text-decoration: underline">text </span>';
         $unparsed = "some [u]text [/u]";
 
-        $parsed = $this->parser->single($unparsed);
+        $parsed = $this->parser->parse($unparsed);
 
-        $this->assertEquals($text, $parsed);
+        $this->assertEquals($expected, $parsed);
     }
 
     public function testMultiTags()
     {
-        $parsed = 'some <b>bold </b>, <i>Italic</i>, <span style="text-decoration: underline">Underline</span>';
-        $text = "some [b]bold [/b], [i]Italic[/i], [u]Underline[/u]";
+        $expected = 'some <b>bold </b>, <i>Italic</i>, <span style="text-decoration: underline">Underline</span>, <b> bold again </b>';
+        $text = "some [b]bold [/b], [i]Italic[/i], [u]Underline[/u], [b] bold again [/b]";
 
-        $parsedText = $this->parser->single($text);
+        $parsedText = $this->parser->parse($text);
 
-        $this->assertEquals($parsed, $parsedText);
+        $this->assertEquals($expected, $parsedText);
     }
 
     public function testFakeTag()
     {
         $text = "this is some [fake] tag [/fake]";
 
-        $parsed = $this->parser->single($text);
+        $parsed = $this->parser->parse($text);
 
         $this->assertEquals($text, $parsed);
+    }
+
+    public function testColor()
+    {
+        $text = "this is [color=#000000] tag [/color] some [color=red] tag [/color]";
+        $expected = 'this is <span style="color:#000000"> tag </span> some <span style="color:red"> tag </span>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
     }
 }
