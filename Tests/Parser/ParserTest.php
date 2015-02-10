@@ -36,8 +36,8 @@ class ParserTest extends WebTestCase
 
     public function testUnderLine()
     {
-        $expected = 'some <span style="text-decoration: underline">text </span>';
-        $unparsed = "some [u]text [/u]";
+        $expected = '<span style="text-decoration: underline">text </span>';
+        $unparsed = "[u]text [/u]";
 
         $parsed = $this->parser->parse($unparsed);
 

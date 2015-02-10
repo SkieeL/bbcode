@@ -18,12 +18,11 @@ class ParserTest extends WebTestCase
         $factory->parse();
         $parsed = $factory->getParsed();
 
-        $this->assertEquals($expected, $parsed);
-
         $factory = new TagFactory($wrong);
         $factory->parse();
-        $parsed = $factory->getParsed();
+        $notParsed = $factory->getParsed();
 
-        $this->assertEquals($wrong, $parsed);
+        $this->assertEquals($expected, $parsed);
+        $this->assertEquals($wrong, $notParsed);
     }
 }

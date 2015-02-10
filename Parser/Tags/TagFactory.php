@@ -20,7 +20,7 @@ class TagFactory
     public function parse()
     {
         foreach ($this->tags as $tag) {
-            if (strpos($this->text, $tag)) {
+            if (strpos($this->text, $tag) !== false) {
 
                 $tag = str_replace(array('[', ']'), '', $tag);
                 $tag = ucfirst($tag);
