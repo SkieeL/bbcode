@@ -7,10 +7,10 @@ bbcode parser Bundle for Symfony framework
 - Italic [i]..[/i] *
 - Underline ([u]..[/u] - span style
 - Colors [color=(black/#cccccc)]..[/color] - span style
+- URL [url=(http..) target=(_blank/etc)]...[/url] (target is optional)
 
 ## will work soon:
 - img
-- links a with targets
 - video (youtube?)
 - ...
 
