@@ -9,7 +9,8 @@ class TagFactory
         '[b]',
         '[i]',
         '[u]',
-        '[color'
+        '[color',
+        '[url'
     );
 
     public function __construct($text)

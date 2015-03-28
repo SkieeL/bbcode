@@ -72,4 +72,24 @@ class ParserTest extends WebTestCase
 
         $this->assertEquals($expected, $parsed);
     }
+
+    public function testUrl()
+    {
+        $text = "[url=http://arturs.pl]link[/url]";
+        $expected = '<a href="http://arturs.pl">link</a>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
+    }
+
+    public function testUrlandTarget()
+    {
+        $text = "[url=http://arturs.pl target=_blank]link[/url]";
+        $expected = '<a href="http://arturs.pl" target="_blank">link</a>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
+    }
 }
