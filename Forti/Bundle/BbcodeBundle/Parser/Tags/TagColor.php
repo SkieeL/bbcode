@@ -32,7 +32,7 @@ class TagColor extends AbstractTag implements TagInterface
     private function setTags($text)
     {
         $tags = array();
-        $count = preg_match_all('~(\[color=)((.*?)])~i', $text, $matches, PREG_SET_ORDER);
+        preg_match_all('~(\[color=)((.*?)])~i', $text, $matches, PREG_SET_ORDER);
 
         foreach ($matches as $match) {
             $tags[] = array(

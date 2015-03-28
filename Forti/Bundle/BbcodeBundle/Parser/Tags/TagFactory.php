@@ -12,7 +12,7 @@ class TagFactory
             'close' => '[/b]'
         ),
         'italic' => array(
-            'open' => '[b]',
+            'open' => '[i]',
             'class' => 'TagItalic',
             'close' => '[/i]'
         ),
@@ -23,7 +23,7 @@ class TagFactory
         ),
         'color' => array(
             'open' => '[color',
-            'class' => 'TagColo',
+            'class' => 'TagColor',
             'close' => '[/color]'
         ),
         'url' => array(

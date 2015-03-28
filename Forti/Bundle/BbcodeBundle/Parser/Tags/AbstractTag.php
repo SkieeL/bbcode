@@ -11,7 +11,7 @@ abstract class AbstractTag
             if (is_array($tag)) {
                 $result = $this->validate($tag, $text);
             } else {
-               // $result = $this->search($text, $tag);
+                $result = $this->search($text, $tag);
             }
         }
         return $result;
