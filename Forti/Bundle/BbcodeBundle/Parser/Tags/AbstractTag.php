@@ -6,12 +6,12 @@ abstract class AbstractTag
 {
     protected function validate(array $tags, $text)
     {
-        $result = false;
+        $result = '';
         foreach ($tags as $tag) {
             if (is_array($tag)) {
                 $result = $this->validate($tag, $text);
             } else {
-                $result = $this->search($text, $tag);
+               // $result = $this->search($text, $tag);
             }
         }
         return $result;

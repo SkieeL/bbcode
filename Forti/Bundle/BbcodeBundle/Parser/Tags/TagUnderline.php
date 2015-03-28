@@ -5,7 +5,7 @@ namespace Forti\Bundle\BbcodeBundle\Parser\Tags;
 use Forti\Bundle\BbcodeBundle\Parser\Tags\TagInterface;
 use Forti\Bundle\BbcodeBundle\Parser\Tags\AbstractTag;
 
-class TagU extends AbstractTag implements TagInterface
+class TagUnderline extends AbstractTag implements TagInterface
 {
 
     private $parsed = false;
