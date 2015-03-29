@@ -112,4 +112,14 @@ class ParserTest extends WebTestCase
 
         $this->assertEquals($expected, $parsed);
     }
+
+    public function testImage()
+    {
+        $text = "some text [img]http://placehold.it/350x150[/img]";
+        $expected = 'some text <img src="http://placehold.it/350x150"></img>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
+    }
 }

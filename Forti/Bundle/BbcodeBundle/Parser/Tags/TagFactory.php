@@ -40,6 +40,11 @@ class TagFactory
             'open' => '[blockquote',
             'class' => 'TagBlockQuote',
             'close' => '[/blockquote]'
+        ),
+        'image' => array(
+            'open' => '[img',
+            'class' => 'TagImage',
+            'close' => '[/img]'
         )
     );
 
