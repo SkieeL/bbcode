@@ -102,4 +102,14 @@ class ParserTest extends WebTestCase
 
         $this->assertEquals($expected, $parsed);
     }
+
+    public function testQuote()
+    {
+        $text = "some text [blockquote]Some kind text goes here![/blockquote]";
+        $expected = 'some text <blockquote>Some kind text goes here!</blockquote>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
+    }
 }

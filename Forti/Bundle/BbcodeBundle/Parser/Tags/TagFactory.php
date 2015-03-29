@@ -35,6 +35,11 @@ class TagFactory
             'open' => '[youtube',
             'class' => 'TagYouTube',
             'close' => '[/youtube]'
+        ),
+        'quote' => array(
+            'open' => '[blockquote',
+            'class' => 'TagBlockQuote',
+            'close' => '[/blockquote]'
         )
     );
 

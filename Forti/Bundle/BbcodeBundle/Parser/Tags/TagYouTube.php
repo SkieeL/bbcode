@@ -31,11 +31,6 @@ class TagYouTube extends AbstractTag implements TagInterface
         $this->style[0] = str_replace($this->toReplace, $this->config, $this->style[0]);
     }
 
-    public function microtime_float()
-    {
-        return microtime(true);
-    }
-
     public function parse($text)
     {
         $this->setTags($text);
