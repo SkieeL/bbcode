@@ -30,6 +30,11 @@ class TagFactory
             'open' => '[url',
             'class' => 'TagUrl',
             'close' => '[/url]'
+        ),
+        'youtube' => array(
+            'open' => '[youtube',
+            'class' => 'TagYouTube',
+            'close' => '[/youtube]'
         )
     );
 

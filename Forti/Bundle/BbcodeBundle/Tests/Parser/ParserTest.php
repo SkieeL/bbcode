@@ -92,4 +92,14 @@ class ParserTest extends WebTestCase
 
         $this->assertEquals($expected, $parsed);
     }
+
+    public function testYouTube()
+    {
+        $text = "[youtube]https://www.youtube.com/watch?v=GVQqZg5BisE[/youtube]";
+        $expected = '<iframe width="640" height="480" frameborder="0" title="YouTube video player" src="https://www.youtube.com/watch?v=GVQqZg5BisE"></iframe>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
+    }
 }
