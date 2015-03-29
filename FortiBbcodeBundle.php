@@ -1,6 +1,6 @@
 <?php
 
-namespace Forti\Bundle\BbcodeBundle;
+namespace Forti\bbcode;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

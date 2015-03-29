@@ -1,9 +1,9 @@
 <?php
 
-namespace Forti\Bundle\BbcodeBundle\Tests\Parser;
+namespace Forti\bbcode\Tests\Parser;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Forti\Bundle\BbcodeBundle\Parser\Parser;
+use Forti\bbcode\Parser\Parser;
 
 class ParserTest extends WebTestCase
 {

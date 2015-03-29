@@ -1,9 +1,9 @@
 <?php
 
-namespace Forti\Bundle\BbcodeBundle\Parser\Tags;
+namespace Forti\bbcode\Parser\Tags;
 
-use Forti\Bundle\BbcodeBundle\Parser\Tags\TagInterface;
-use Forti\Bundle\BbcodeBundle\Parser\Tags\AbstractTag;
+use Forti\bbcode\Parser\Tags\TagInterface;
+use Forti\bbcode\Parser\Tags\AbstractTag;
 
 class TagItalic extends AbstractTag implements TagInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Forti\Bundle\BbcodeBundle\DependencyInjection;
+namespace Forti\bbcode\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

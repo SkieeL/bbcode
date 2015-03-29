@@ -1,8 +1,8 @@
 <?php
 
-namespace Forti\Bundle\BbcodeBundle\Parser;
+namespace Forti\bbcode\Parser;
 
-use Forti\Bundle\BbcodeBundle\Parser\Tags\TagFactory;
+use Forti\bbcode\Parser\Tags\TagFactory;
 
 abstract class AbstractParser
 {
