@@ -25,7 +25,5 @@
         }
     },
     
-    "minimum-stability": "dev",
-    
-    "target-dir": "Forti/Bundle/BbcodeBundle"
+    "minimum-stability": "dev"
 }
