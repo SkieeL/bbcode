@@ -45,7 +45,7 @@ class TagYouTube extends AbstractTag implements TagInterface
     private function setTags($text)
     {
         $tags = array();
-        preg_match_all('~(\[youtube\])([http|https].*?youtube.*?)(\[\/youtube])~i', $text, $matches, PREG_SET_ORDER);
+        preg_match_all('~(\[youtube\])(.*?)(\[\/youtube])~i', $text, $matches, PREG_SET_ORDER);
 
         foreach ($matches as $match) {
             $tags[] = array(

@@ -1,6 +1,11 @@
 # bbcode
 bbcode parser Bundle for Symfony framework
 
+## @TODO:
+- documentation (!)
+- youtube tag works not well (!)
+- app/config.yml as configuration file - turn off tags / change size of youtube iframe etc.
+- more and improve the quality of tests (!)
 
 ## works:
 - Bold [b]..[/b] *
@@ -15,4 +20,4 @@ bbcode parser Bundle for Symfony framework
 - youtube (with auto embed)
 
 
-(*) probable will be changed to span
+(*) probable will be changed to span style
