@@ -1,8 +1,8 @@
 <?php
 
-namespace Forti\Bundle\BbcodeBundle\Twig;
+namespace Forti\bbcode\Twig;
 
-use Forti\Bundle\BbcodeBundle\Parser\Parser;
+use Forti\bbcode\Parser\Parser;
 
 class BbCodeExtension extends \Twig_Extension
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Forti\Bundle\BbcodeBundle\Tests\Parser\Tags;
+namespace Forti\bbcode\Tests\Parser\Tags;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Forti\Bundle\BbcodeBundle\Parser\Tags\TagFactory;
+use Forti\bbcode\Parser\Tags\TagFactory;
 
 class ParserTest extends WebTestCase
 {

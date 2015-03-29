@@ -1,6 +1,6 @@
 <?php
 
-namespace Forti\Bundle\BbcodeBundle\Parser\Tags;
+namespace Forti\bbcode\Parser\Tags;
 
 class TagFactory
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Forti\Bundle\BbcodeBundle\Parser;
+namespace Forti\bbcode\Parser;
 
-use Forti\Bundle\BbcodeBundle\Parser\AbstractParser;
+use Forti\bbcode\Parser\AbstractParser;
 
 class Parser extends AbstractParser
 {
