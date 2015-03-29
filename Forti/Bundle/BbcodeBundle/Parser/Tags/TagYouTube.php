@@ -5,17 +5,30 @@ namespace Forti\Bundle\BbcodeBundle\Parser\Tags;
 use Forti\Bundle\BbcodeBundle\Parser\Tags\TagInterface;
 use Forti\Bundle\BbcodeBundle\Parser\Tags\AbstractTag;
 
-class TagColor extends AbstractTag implements TagInterface
+class TagYouTube extends AbstractTag implements TagInterface
 {
     private $parsed = false;
     private $tags = array();
     private $style = array(
-        '<span style="color:',
+        '<iframe width="{width}" height="{height}" frameborder="{frameborder}" title="{title}" src="',
         '">'
+    );
+    private $config = array(
+        'height' => 480,
+        'width' => 640,
+        'frameborder' => 0,
+        'title' => "YouTube video player"
+    );
+    private $toReplace = array(
+        '{height}',
+        '{width}',
+        '{frameborder}',
+        '{title}'
     );
 
     public function __construct()
     {
+        $this->style[0] = str_replace($this->toReplace, $this->config, $this->style[0]);
     }
 
     public function parse($text)
@@ -32,13 +45,12 @@ class TagColor extends AbstractTag implements TagInterface
     private function setTags($text)
     {
         $tags = array();
-        $count = preg_match_all('~(\[color=)((.*?)])~i', $text, $matches, PREG_SET_ORDER);
+        preg_match_all('~(\[youtube\])([http|https].*?youtube.*?)(\[\/youtube])~i', $text, $matches, PREG_SET_ORDER);
 
         foreach ($matches as $match) {
             $tags[] = array(
                 'from' => $match[1],
-                'end' => $match[2],
-                'color' => $match[3]
+                'end' => $match[3]
             );
         }
         $this->tags = $tags;
@@ -49,8 +61,7 @@ class TagColor extends AbstractTag implements TagInterface
         $parsed = $text;
         foreach ($this->tags as $tag) {
             $parsed = str_replace($tag['from'], $this->style[0], $parsed);
-            $parsed = str_replace($tag['end'], $tag['color'].$this->style[1], $parsed);
-            $parsed = str_replace('[/color]', '</span>', $parsed);
+            $parsed = str_replace('[/youtube]', $this->style[1].'</iframe>', $parsed);
         }
 
         return $parsed;

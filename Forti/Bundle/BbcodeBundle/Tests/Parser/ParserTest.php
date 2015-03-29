@@ -92,4 +92,34 @@ class ParserTest extends WebTestCase
 
         $this->assertEquals($expected, $parsed);
     }
+
+    public function testYouTube()
+    {
+        $text = "[youtube]https://www.youtube.com/watch?v=GVQqZg5BisE[/youtube]";
+        $expected = '<iframe width="640" height="480" frameborder="0" title="YouTube video player" src="https://www.youtube.com/watch?v=GVQqZg5BisE"></iframe>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
+    }
+
+    public function testQuote()
+    {
+        $text = "some text [blockquote]Some kind text goes here![/blockquote]";
+        $expected = 'some text <blockquote>Some kind text goes here!</blockquote>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
+    }
+
+    public function testImage()
+    {
+        $text = "some text [img]http://placehold.it/350x150[/img]";
+        $expected = 'some text <img src="http://placehold.it/350x150"></img>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
+    }
 }

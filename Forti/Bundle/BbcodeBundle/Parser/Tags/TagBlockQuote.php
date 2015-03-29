@@ -5,17 +5,16 @@ namespace Forti\Bundle\BbcodeBundle\Parser\Tags;
 use Forti\Bundle\BbcodeBundle\Parser\Tags\TagInterface;
 use Forti\Bundle\BbcodeBundle\Parser\Tags\AbstractTag;
 
-class TagI extends AbstractTag implements TagInterface
+class TagBlockQuote extends AbstractTag implements TagInterface
 {
     private $parsed = false;
     private $tag = array(
-        'from' => array("[i]", "[/i]"),
-        'to' => array("<i>", "</i>"),
+        'from' => array("[blockquote]", "[/blockquote]"),
+        'to' => array("<blockquote>", "</blockquote>"),
     );
 
     public function __construct()
     {
-
     }
 
     public function parse($text)

@@ -1,0 +1,5 @@
+services:
+    forti.bbcode_extension:
+        class: Forti\Bundle\BbcodeBundle\Twig\BbCodeExtension
+        tags:
+            - { name: twig.extension }
