@@ -21,7 +21,7 @@ bbcode parser Bundle for Symfony framework
 composer.json:
 ```
 "require": {
-        "Forti/bbcode": "dev-master"
+        "Forti/bbcode": "v1.0.x"
 },
     "repositories": [
         {
