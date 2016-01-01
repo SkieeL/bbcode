@@ -8,7 +8,8 @@ use Forti\bbcode\Parser\Tags\AbstractTag;
 class TagYouTube extends AbstractTag implements TagInterface
 {
     private $parsed = false;
-    private $tags = array();
+    private $tags = [];
+    private $youtubeUrl = 'https://www.youtube.com/embed/';
     private $style = array(
         '<iframe width="{width}" height="{height}" frameborder="{frameborder}" title="{title}" src="',
         '">'
@@ -29,6 +30,7 @@ class TagYouTube extends AbstractTag implements TagInterface
     public function __construct()
     {
         $this->style[0] = str_replace($this->toReplace, $this->config, $this->style[0]);
+        $this->style[0] .= $this->youtubeUrl;
     }
 
     public function parse($text)
