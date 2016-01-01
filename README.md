@@ -17,46 +17,6 @@ bbcode parser Bundle for Symfony framework
 
 ## Instalation:
 
-<section>
-"require": {
-        "Forti/bbcode": "1.0.x"
-},
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:Fortidude/bbcode.git"
-        }],
-</section>
-
-a następnie wpisać oczywiście komenda:
-
-<section>
-$ composer update
-</section>
-
-Dodajemy wpis do pliku AppKernel.php:
-
-<section>
-public function registerBundles()
-    {
-        $bundles = array(
-        //...
-                new Forti\bbcode\FortiBbcodeBundle(),
-        //...
-    }
-</section>
-
-i na sam koniec, w miejscu gdzie chcemy wyświetlać teksts, w twigu wystarczy wykorzystać rozszeżenie dla twiga "bbcode":
-
-<section>
-    {{ variable|bbcode }}
-</section>
-
-
-(*) probable will be changed to span style
-
-## Instalation:
-
 
 composer.json:
 ```
