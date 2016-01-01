@@ -56,3 +56,42 @@ i na sam koniec, w miejscu gdzie chcemy wyświetlać teksts, w twigu wystarczy w
 
 
 (*) probable will be changed to span style
+
+## Instalation:
+
+
+composer.json:
+```
+"require": {
+        "Forti/bbcode": "dev-master"
+},
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:Fortidude/bbcode.git"
+        }],
+```
+
+
+Composer update
+```
+$ composer update
+```
+
+
+app/AppKernel.php:
+```
+public function registerBundles()
+    {
+        $bundles = array(
+        //...
+                new Forti\bbcode\FortiBbcodeBundle(),
+        //...
+    }
+```
+
+
+and that's it! Now you can use bbcode twig extension in you view:
+```
+    {{ variable|bbcode }}
+```
