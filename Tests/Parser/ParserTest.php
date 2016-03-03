@@ -95,8 +95,8 @@ class ParserTest extends WebTestCase
 
     public function testYouTube()
     {
-        $text = "[youtube]https://www.youtube.com/watch?v=GVQqZg5BisE[/youtube]";
-        $expected = '<iframe width="640" height="480" frameborder="0" title="YouTube video player" src="https://www.youtube.com/watch?v=GVQqZg5BisE"></iframe>';
+        $text = "[youtube]GVQqZg5BisE[/youtube]";
+        $expected = '<iframe width="640" height="480" frameborder="0" title="YouTube video player" src="https://www.youtube.com/embed/GVQqZg5BisE"></iframe>';
 
         $parsed = $this->parser->parse($text);
 
@@ -117,6 +117,19 @@ class ParserTest extends WebTestCase
     {
         $text = "some text [img]http://placehold.it/350x150[/img]";
         $expected = 'some text <img src="http://placehold.it/350x150"></img>';
+
+        $parsed = $this->parser->parse($text);
+
+        $this->assertEquals($expected, $parsed);
+    }
+
+    /**
+     * @TODO pre style customized
+     */
+    public function testPre()
+    {
+        $text = "some text [pre]code[/pre] :)";
+        $expected = 'some text <pre class="prettyprint language-php">code</pre> :)';
 
         $parsed = $this->parser->parse($text);
 

@@ -45,7 +45,12 @@ class TagFactory
             'open' => '[img',
             'class' => 'TagImage',
             'close' => '[/img]'
-        )
+        ),
+        'pre' => [
+            'open' => '[pre',
+            'class' => 'TagPre',
+            'close' => '[/pre]'
+        ]
     );
 
     public function __construct($text)
