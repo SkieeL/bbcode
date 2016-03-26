@@ -15,7 +15,7 @@ class TagUrl extends AbstractTag implements TagInterface
         '">'
     );
 
-    public function __construct()
+    public function __construct(array $config = [])
     {
     }
 

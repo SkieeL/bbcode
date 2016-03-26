@@ -5,24 +5,28 @@ namespace Forti\bbcode\Parser\Tags;
 use Forti\bbcode\Parser\Tags\TagInterface;
 use Forti\bbcode\Parser\Tags\AbstractTag;
 
-class TagUnderline extends AbstractTag implements TagInterface
+class TagPre extends AbstractTag implements TagInterface
 {
-
+    private $config = [];
     private $parsed = false;
     private $tag = array(
         'from' => array(
-            "[u]",
-            "[/u]"
+            "[pre]",
+            "[/pre]"
         ),
         'to' => array(
-            '<span style="text-decoration: underline">',
-            '</span>'
+            '<pre class="">',
+            '</pre>'
         )
     );
 
     public function __construct(array $config = [])
     {
+        $this->config = $config;
 
+        $toOpen = $this->tag['to'][0];
+        $toOpen = str_replace('class=""', "class=\"{$config['class']}\"", $toOpen);
+        $this->tag['to'][0] = $toOpen;
     }
 
     public function parse($text)

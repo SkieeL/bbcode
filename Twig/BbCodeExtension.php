@@ -6,6 +6,13 @@ use Forti\bbcode\Parser\Parser;
 
 class BbCodeExtension extends \Twig_Extension
 {
+    protected $config = [];
+
+    public function __construct(array $config)
+    {
+        $this->config = $config;
+    }
+
     public function getFilters()
     {
         return array(
@@ -15,7 +22,7 @@ class BbCodeExtension extends \Twig_Extension
 
     public function bbCodeParser($text)
     {
-        $parser = new Parser();
+        $parser = new Parser($this->config);
         return $parser->parse($text);
     }
 

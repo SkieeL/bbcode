@@ -13,7 +13,7 @@ class TagItalic extends AbstractTag implements TagInterface
         'to' => array("<i>", "</i>"),
     );
 
-    public function __construct()
+    public function __construct(array $config = [])
     {
 
     }

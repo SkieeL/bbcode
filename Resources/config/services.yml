@@ -1,5 +1,6 @@
 services:
     forti.bbcode_extension:
         class: Forti\bbcode\Twig\BbCodeExtension
+        arguments: [%forti_bbcode.config%]
         tags:
             - { name: twig.extension }

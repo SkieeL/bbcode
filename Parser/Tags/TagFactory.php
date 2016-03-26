@@ -4,6 +4,8 @@ namespace Forti\bbcode\Parser\Tags;
 
 class TagFactory
 {
+    protected $config = [];
+
     private $text = false;
     private $tags = array(
         'bold' => array(
@@ -45,22 +47,31 @@ class TagFactory
             'open' => '[img',
             'class' => 'TagImage',
             'close' => '[/img]'
-        )
+        ),
+        'pre' => [
+            'open' => '[pre',
+            'class' => 'TagPre',
+            'close' => '[/pre]'
+        ]
     );
 
-    public function __construct($text)
+    public function __construct($text, array $config)
     {
         $this->text = $text;
+        $this->config = $config;
     }
 
     public function parse()
     {
-        foreach ($this->tags as $tag) {
+        foreach ($this->tags as $key => $tag) {
             if (strpos($this->text, $tag['open']) !== false) {
+                $class = $tag['class'];
+                $className = __NAMESPACE__ . "\\{$class}";
 
-                $className = __NAMESPACE__ . "\\{$tag['class']}";
+                $config = isset($this->config[$key]) ? $this->config[$key] : [];
 
-                $class = new $className();
+                /** @var TagInterface $class */
+                $class = new $className($config);
                 $class->parse($this->text);
                 $this->text = $class->getParsed();
 
