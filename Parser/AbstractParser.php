@@ -8,9 +8,12 @@ abstract class AbstractParser
 {
     private $parsed = false;
 
-    public function __construct()
-    {
+    /** @var array */
+    protected $config = [];
 
+    public function __construct(array $config)
+    {
+        $this->config = $config;
     }
 
     protected function single($text)
@@ -22,7 +25,7 @@ abstract class AbstractParser
 
     protected function tagFactory($text)
     {
-        $tag = new TagFactory($text);
+        $tag = new TagFactory($text, $this->config);
         $tag->parse();
         $this->parsed = $tag->getParsed();
     }

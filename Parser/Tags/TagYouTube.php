@@ -27,7 +27,7 @@ class TagYouTube extends AbstractTag implements TagInterface
         '{title}'
     );
 
-    public function __construct()
+    public function __construct(array $config = [])
     {
         $this->style[0] = str_replace($this->toReplace, $this->config, $this->style[0]);
         $this->style[0] .= $this->youtubeUrl;

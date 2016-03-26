@@ -14,7 +14,7 @@ class TagImage extends AbstractTag implements TagInterface
         '"></img>'
     );
 
-    public function __construct()
+    public function __construct(array $config = [])
     {
     }
 

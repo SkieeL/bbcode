@@ -13,7 +13,7 @@ class TagBold extends AbstractTag implements TagInterface
         'to' => array("<b>", "</b>"),
     );
 
-    public function __construct()
+    public function __construct(array $config = [])
     {
     }
 

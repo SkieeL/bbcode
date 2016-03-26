@@ -7,7 +7,7 @@ use Forti\bbcode\Parser\Tags\AbstractTag;
 
 class TagPre extends AbstractTag implements TagInterface
 {
-
+    private $config = [];
     private $parsed = false;
     private $tag = array(
         'from' => array(
@@ -15,14 +15,18 @@ class TagPre extends AbstractTag implements TagInterface
             "[/pre]"
         ),
         'to' => array(
-            '<pre class="prettyprint language-php">',
+            '<pre class="">',
             '</pre>'
         )
     );
 
-    public function __construct()
+    public function __construct(array $config = [])
     {
+        $this->config = $config;
 
+        $toOpen = $this->tag['to'][0];
+        $toOpen = str_replace('class=""', "class=\"{$config['class']}\"", $toOpen);
+        $this->tag['to'][0] = $toOpen;
     }
 
     public function parse($text)

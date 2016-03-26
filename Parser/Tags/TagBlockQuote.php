@@ -13,7 +13,7 @@ class TagBlockQuote extends AbstractTag implements TagInterface
         'to' => array("<blockquote>", "</blockquote>"),
     );
 
-    public function __construct()
+    public function __construct(array $config = [])
     {
     }
 
