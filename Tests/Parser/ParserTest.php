@@ -11,7 +11,7 @@ class ParserTest extends WebTestCase
 
     public function setUp()
     {
-        $this->parser = new Parser();
+        $this->parser = new Parser([]);
     }
 
     public function testBold()
@@ -129,7 +129,7 @@ class ParserTest extends WebTestCase
     public function testPre()
     {
         $text = "some text [pre]code[/pre] :)";
-        $expected = 'some text <pre class="prettyprint language-php">code</pre> :)';
+        $expected = 'some text <pre class="">code</pre> :)';
 
         $parsed = $this->parser->parse($text);
 

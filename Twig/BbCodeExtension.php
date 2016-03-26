@@ -23,7 +23,7 @@ class BbCodeExtension extends \Twig_Extension
     public function bbCodeParser($text)
     {
         $parser = new Parser($this->config);
-        return $parser->parse($text);
+        return $parser->parse(nl2br($text));
     }
 
     public function getName()

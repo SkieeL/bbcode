@@ -55,7 +55,7 @@ class TagFactory
         ]
     );
 
-    public function __construct($text, array $config)
+    public function __construct($text, array $config = [])
     {
         $this->text = $text;
         $this->config = $config;

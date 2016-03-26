@@ -24,9 +24,11 @@ class TagPre extends AbstractTag implements TagInterface
     {
         $this->config = $config;
 
-        $toOpen = $this->tag['to'][0];
-        $toOpen = str_replace('class=""', "class=\"{$config['class']}\"", $toOpen);
-        $this->tag['to'][0] = $toOpen;
+        if (isset($config['class'])) {
+            $toOpen = $this->tag['to'][0];
+            $toOpen = str_replace('class=""', "class=\"{$config['class']}\"", $toOpen);
+            $this->tag['to'][0] = $toOpen;
+        }
     }
 
     public function parse($text)
